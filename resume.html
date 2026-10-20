@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Resume | Yixuan Lu</title>
-  <meta name="description" content="Portfolio of Yixuan Lu, 3D character performance animator.">
+  <meta name="description" content="Resume of Yixuan Lu, 3D character performance animator.">
 
   <!-- Browser tab icon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -12,11 +12,11 @@
   <!-- Fonts from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-resume">
 
   <!-- ===== NAVIGATION ===== -->
   <header class="site-nav">
@@ -26,16 +26,167 @@
     </a>
     <nav>
       <a href="about.html">About</a>
-      <a href="resume.html">Resume</a>
+      <a href="resume.html" aria-current="page">Resume</a>
       <!-- The email address is set once in js/main.js (see EMAIL_ADDRESS) -->
       <a href="mailto:[EMAIL]" data-email>Email</a>
     </nav>
   </header>
 
-  <main class="simple-page">
-    <h1>Resume</h1>
-    <p>This page is coming soon.</p>
-    <a class="back-link" href="index.html">&larr; Back to home</a>
+  <main>
+
+    <!-- ===== TITLE, CONTACT AND DOWNLOAD ===== -->
+    <header class="project-header resume-header">
+      <div>
+        <h1>Resume</h1>
+        <!-- The email address is filled in from js/main.js (see EMAIL_ADDRESS) -->
+        <p class="resume-contact">
+          <span>Yixuan Lu</span>
+          <a href="mailto:[EMAIL]" data-email data-email-text>[EMAIL]</a>
+        </p>
+      </div>
+      <!-- To update the PDF, replace files/Yixuan_Lu_Resume.pdf with a new file of the same name -->
+      <a class="button-download" href="files/Yixuan_Lu_Resume.pdf" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>
+        Download PDF
+      </a>
+    </header>
+
+    <!-- ===== PROFILE ===== -->
+    <section class="project-description resume-group" aria-labelledby="profile-heading">
+      <h2 id="profile-heading" class="section-label">Profile</h2>
+
+      <!-- ===== ABOUT ME START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>01</span>About Me</h3>
+        <div class="description-body">
+          <p>Character performance animator for games, film, and TV. Born in Shanghai, China, I am completing four years of undergraduate study in the United States. I animate acting and lip-sync performances with believable weight and push-pull mechanics, and I complete the full 3D pipeline myself. I communicate clearly in a team and keep my assets organized for handoff. I speak Mandarin and English.</p>
+        </div>
+      </div>
+      <!-- ===== ABOUT ME END ===== -->
+
+      <!-- ===== EDUCATION START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>02</span>Education</h3>
+        <div class="description-body">
+          <div class="resume-entry">
+            <h4>Ringling College of Art + Design</h4>
+            <p class="resume-meta">BFA in Computer Animation <span>August 2023 – expected 2027</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- ===== EDUCATION END ===== -->
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="project-description resume-group" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="section-label">Experience</h2>
+
+      <!-- ===== PROJECT EXPERIENCE START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>03</span>Project Experience</h3>
+        <div class="description-body">
+
+          <div class="resume-entry">
+            <h4><a href="projects/drama-queen.html">Drama Queen</a></h4>
+            <p class="resume-meta">Character: White <span>January – May 2026</span> <span>Course project</span></p>
+            <ul>
+              <li>Created a modern teen comedy: a teacher interrupts a woman's story of her hated husband's death, revealing a school theater audition</li>
+              <li>Designed the character, storyboarded, gathered reference, and recorded video reference</li>
+              <li>Modeled and textured a stylized character in ZBrush, Maya, and Substance Painter, with a different costume model for each scene</li>
+              <li>Rigged body and face with AdvancedSkeleton, plus prop rigs for her glasses and a photo frame; groomed hair in XGen and simulated her skirt in nCloth, the hardest parts</li>
+              <li>Animated lip-sync and the creative highlight: switching between her imagined role and her real self through performance and costume modeling</li>
+              <li>Lit and rendered in Arnold, composited in Nuke, edited in Premiere</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <h4><a href="projects/gecko-mail.html">Gecko Mail</a></h4>
+            <p class="resume-meta">Character: Rory <span>September – December 2025</span> <span>Course project</span></p>
+            <p class="award-label">Best of Ringling award</p>
+            <ul>
+              <li>Created a story in a Nordic-inspired fictional world: on a cold day, a gecko mail carrier opens a metal mailbox with his tongue, which sticks to the frozen metal</li>
+              <li>Designed the character, storyboarded, gathered reference, and recorded video reference</li>
+              <li>Modeled and textured a stylized character in ZBrush, Maya, and Substance Painter</li>
+              <li>Rigged body and face with AdvancedSkeleton, adding blendshapes for extreme poses and an IK/FK tongue rig</li>
+              <li>Animated the creative highlight, Rory's stuck-tongue struggle, with push-pull mechanics and believable weight, studying the pull with a stretchy elastic cord</li>
+              <li>Lit and rendered in Arnold, composited in Nuke, edited in Premiere</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <!-- ===== PROJECT EXPERIENCE END ===== -->
+
+      <!-- ===== WORK EXPERIENCE START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>04</span>Work Experience</h3>
+        <div class="description-body">
+          <div class="resume-entry">
+            <h4>Commercial Editing Intern</h4>
+            <p class="resume-meta">E-commerce company, Shanghai, China <span>July 2024</span></p>
+            <ul>
+              <li>Edited 15+ short promotional videos (20–40 seconds each) per day in CapCut</li>
+              <li>Wrote video scripts supporting visual promotion and brand messaging</li>
+              <li>Collaborated with marketing teams to review footage and develop video concepts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- ===== WORK EXPERIENCE END ===== -->
+    </section>
+
+    <!-- ===== SKILLS AND TOOLS ===== -->
+    <section class="project-description resume-group" aria-labelledby="toolkit-heading">
+      <h2 id="toolkit-heading" class="section-label">Toolkit</h2>
+
+      <!-- ===== SKILLS START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>05</span>Skills</h3>
+        <div class="description-body">
+          <ul class="skill-list">
+            <li><strong>Character performance and acting:</strong> story-driven acting with clear A-to-B poses</li>
+            <li><strong>Lip-sync:</strong> dialogue animation in 3D and 2D</li>
+            <li><strong>Weight and push-pull mechanics:</strong> believable weight in characters and objects</li>
+            <li><strong>Full 3D pipeline:</strong> design, modeling, texturing, rigging, hair and cloth, animation, lighting, rendering, compositing, editing</li>
+            <li><strong>2D animation:</strong> Photoshop and Animation Paper</li>
+            <li><strong>Soft skills:</strong> communication, adaptability, organized asset management, problem solving</li>
+          </ul>
+        </div>
+      </div>
+      <!-- ===== SKILLS END ===== -->
+
+      <!-- ===== SOFTWARE START (draft text: one program per line) ===== -->
+      <div class="description-block">
+        <h3><span>06</span>Software</h3>
+        <div class="description-body">
+          <ul class="tag-list">
+            <li>ZBrush</li>
+            <li>Maya (AdvancedSkeleton, XGen, nCloth)</li>
+            <li>Substance Painter</li>
+            <li>Arnold</li>
+            <li>Nuke</li>
+            <li>Photoshop</li>
+            <li>Premiere</li>
+            <li>Animation Paper</li>
+            <li>CapCut</li>
+          </ul>
+        </div>
+      </div>
+      <!-- ===== SOFTWARE END ===== -->
+
+      <!-- ===== LANGUAGES START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>07</span>Languages</h3>
+        <div class="description-body">
+          <ul class="tag-list">
+            <li>Mandarin</li>
+            <li>English</li>
+          </ul>
+        </div>
+      </div>
+      <!-- ===== LANGUAGES END ===== -->
+    </section>
+
   </main>
 
   <footer class="site-footer">

@@ -7,6 +7,15 @@ const EMAIL_ADDRESS = "[EMAIL]";
 
 
 // =============================================================
+// ABOUT PAGE PHOTO
+// Put your photo in the images folder, then type its file name
+// between the quotes, e.g. "images/photo.jpg".
+// Leave it empty ("") to show the "Photo Coming Soon" frame.
+// =============================================================
+const PHOTO_FILE = "";
+
+
+// =============================================================
 // VIDEO LINKS
 // Paste each YouTube link between its quotes and save.
 // Any normal YouTube link works, for example:
@@ -56,11 +65,28 @@ function loadVideos() {
 }
 
 // Points every link marked data-email at the address above.
+// Links also marked data-email-text show the address as their text.
 function setEmailLinks() {
+  const address = EMAIL_ADDRESS.trim();
   document.querySelectorAll("[data-email]").forEach(function (link) {
-    link.href = "mailto:" + EMAIL_ADDRESS.trim();
+    link.href = "mailto:" + address;
+    if (link.hasAttribute("data-email-text")) link.textContent = address;
   });
 }
 
+// Swaps the "Photo Coming Soon" frame for the photo, once a file is set.
+function loadPhoto() {
+  const frame = document.querySelector("[data-photo]");
+  const file = PHOTO_FILE.trim();
+  if (!frame || !file) return;
+
+  const photo = document.createElement("img");
+  photo.src = file;
+  photo.alt = "Portrait of Yixuan Lu";
+  frame.innerHTML = "";
+  frame.appendChild(photo);
+}
+
 setEmailLinks();
+loadPhoto();
 loadVideos();

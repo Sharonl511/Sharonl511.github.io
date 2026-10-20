@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Yixuan Lu</title>
-  <meta name="description" content="Portfolio of Yixuan Lu, 3D character performance animator.">
+  <meta name="description" content="About Yixuan Lu, 3D character performance animator.">
 
   <!-- Browser tab icon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -12,7 +12,7 @@
   <!-- Fonts from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,17 +25,94 @@
       <span>Yixuan Lu</span>
     </a>
     <nav>
-      <a href="about.html">About</a>
+      <a href="about.html" aria-current="page">About</a>
       <a href="resume.html">Resume</a>
       <!-- The email address is set once in js/main.js (see EMAIL_ADDRESS) -->
       <a href="mailto:[EMAIL]" data-email>Email</a>
     </nav>
   </header>
 
-  <main class="simple-page">
-    <h1>About</h1>
-    <p>This page is coming soon.</p>
-    <a class="back-link" href="index.html">&larr; Back to home</a>
+  <main>
+
+    <header class="project-header">
+      <h1>About</h1>
+    </header>
+
+    <!-- ===== PHOTO AND BIOGRAPHY ===== -->
+    <section class="about-intro" aria-label="Biography">
+
+      <!-- The photo file is set in js/main.js (see PHOTO_FILE at the top of that file) -->
+      <div class="photo-column">
+        <div class="video-brackets photo-brackets">
+          <div class="photo-frame" data-photo>
+            <div class="video-placeholder">
+              <svg class="photo-icon" viewBox="0 0 64 64" aria-hidden="true">
+                <circle cx="32" cy="24" r="11"/>
+                <path d="M12 56 C12 42 21 36 32 36 C43 36 52 42 52 56"/>
+              </svg>
+              <p class="video-title">Photo Coming Soon</p>
+              <p class="video-ratio">4:5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bio">
+        <!-- ===== BIOGRAPHY START (draft text: replace the paragraphs below) ===== -->
+
+        <p>I'm Yixuan Lu, a character performance animator finishing my BFA in Computer Animation at Ringling College of Art + Design, class of 2027. My work is aimed at games, film, and TV, with a focus on storytelling: clear A-to-B poses, lip-sync, and characters that interact convincingly with props and environments.</p>
+
+        <p>I take each project through the full 3D pipeline myself. I design the character, model it in ZBrush and Maya, texture it in Substance Painter, and build full-body, face, and prop rigs in Maya, with blendshapes that range from casual to extreme. Then I animate, render in Arnold, composite in Nuke, and edit in Premiere. My full-body shots have ranged from an adult man to a teenage girl to a gecko creature, each refined through rounds of critique. I also animate in 2D with Photoshop and Animation Paper.</p>
+
+        <p>My ideas usually start with everyday life, and I like seeing different perspectives combine into something new. I'm currently making my thesis film with one teammate, and we work through problems together at every stage of production. In 2024 I interned as an editor in Shanghai, cutting more than 15 short promotional videos a day in CapCut with a marketing team.</p>
+
+        <p>I keep my files organized so teammates can pick up my work easily, and I work in both English and Mandarin. I'd love to hear what your team is working on.</p>
+
+        <!-- ===== BIOGRAPHY END ===== -->
+      </div>
+
+    </section>
+
+    <img class="section-divider" src="images/ui-divider.png" alt="" width="2000" height="92">
+
+    <!-- ===== ABOUT THIS SITE ===== -->
+    <section class="project-description" aria-labelledby="site-heading">
+      <h2 id="site-heading" class="section-label section-label-wide">About This Site</h2>
+
+      <!-- ===== MY WORK START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>01</span>My Work</h3>
+        <div class="description-body">
+          <p>All animation on this site is my own work. I created Drama Queen and Gecko Mail myself through the full 3D pipeline: character design, modeling, texturing, rigging, animation, rendering, compositing, and editing. No AI tool was used to create any animation.</p>
+        </div>
+      </div>
+      <!-- ===== MY WORK END ===== -->
+
+      <!-- ===== HOW I USED AI START (draft text) ===== -->
+      <div class="description-block">
+        <h3><span>02</span>How I Used AI</h3>
+        <div class="description-body">
+          <ul class="tool-list">
+            <li><strong>Claude (Anthropic)</strong> drafted the text of my biography, project descriptions, and resume from facts I provided, and helped me refine my prompts for the other tools. I reviewed and revised every sentence.</li>
+            <li><strong>Claude Code (Anthropic)</strong> designed and coded this website, including its layout and interactions, based on my descriptions and visual references. I tested every page.</li>
+            <li><strong>Adobe Firefly</strong>, using OpenAI's GPT Image 2.5 Flare model, generated the banner, page backgrounds, icons, and other graphic elements. I edited every image and added all text by hand.</li>
+            <li><strong>Suno</strong> generated the background music in my demo reel. I edited it in Premiere to match my cuts.</li>
+          </ul>
+          <p>Each AI tool handled only the task listed above. I checked every result, and I take responsibility for everything published here.</p>
+        </div>
+      </div>
+      <!-- ===== HOW I USED AI END ===== -->
+
+      <!-- ===== CREDITS START (draft text: fill in [CLIP NAME] and [ARTIST NAME]) ===== -->
+      <div class="description-block">
+        <h3><span>03</span>Credits</h3>
+        <div class="description-body">
+          <p>In my demo reel clip [CLIP NAME], the character model, rig, and textures were created by [ARTIST NAME]. I created the environment, props, voice, rendering, and animation.</p>
+        </div>
+      </div>
+      <!-- ===== CREDITS END ===== -->
+    </section>
+
   </main>
 
   <footer class="site-footer">
