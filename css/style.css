@@ -1,0 +1,403 @@
+/* =============================================================
+   COLORS
+   Change a color here and it updates everywhere on the site.
+   ============================================================= */
+:root {
+  --black: #131516;
+  --off-white: #F0F2F4;
+  --gray: #9A9DA0;
+  --gray-dark: #5C6064;   /* darker gray for small text, easier to read */
+  --gray-light: #DADDE0;  /* thin borders and lines */
+  --accent: #66AAF6;      /* soft light blue */
+
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
+  --content-width: 1120px;
+}
+
+/* =============================================================
+   BASICS
+   ============================================================= */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--black);
+  background-color: var(--off-white);
+  /* the hexagon pattern sits behind everything and stays still while you scroll */
+  background-image: url("../images/background-hexagon.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+/* visible outline when moving through the page with the keyboard */
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =============================================================
+   NAVIGATION
+   ============================================================= */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px clamp(16px, 4vw, 48px);
+  background: var(--black);
+  color: var(--off-white);
+}
+
+.nav-home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.site-nav nav {
+  display: flex;
+  gap: clamp(16px, 3vw, 36px);
+}
+
+.site-nav nav a {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--off-white);
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+/* blue line that slides in under a link on hover */
+.site-nav nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.site-nav nav a:hover { color: var(--accent); }
+.site-nav nav a:hover::after { transform: scaleX(1); }
+
+/* =============================================================
+   BANNER
+   The text is placed on top of the image, inside the empty
+   light area on the left. Sizes use "vw" (a percentage of the
+   screen width) so the text grows and shrinks with the image.
+   ============================================================= */
+.banner {
+  position: relative;
+  width: 100%;
+  background: var(--off-white);
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+}
+
+.banner-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6%;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 7.2vw;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+.banner-text p {
+  margin: 1.4vw 0 0;
+  padding-left: 1.2vw;
+  border-left: 0.35vw solid var(--accent);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 2.1vw;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+
+/* =============================================================
+   PAGE SECTIONS
+   ============================================================= */
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+
+/* short blue line before each section name */
+.section-label::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* =============================================================
+   DEMO REEL
+   ============================================================= */
+.reel {
+  padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 7vw, 88px);
+}
+
+/* the 16:9 frame; the YouTube player fills it once a link is added */
+.reel-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+  overflow: hidden;
+  box-shadow: 0 24px 60px -20px rgba(19, 21, 22, 0.45);
+}
+
+.reel-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.reel-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--off-white);
+  /* faint grid, like a viewport in 3D software */
+  background-image:
+    linear-gradient(rgba(240, 242, 244, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 242, 244, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+}
+
+/* corner marks, like a camera frame */
+.reel-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  --c: var(--accent);
+  background:
+    linear-gradient(var(--c), var(--c)) top left / 24px 2px,
+    linear-gradient(var(--c), var(--c)) top left / 2px 24px,
+    linear-gradient(var(--c), var(--c)) top right / 24px 2px,
+    linear-gradient(var(--c), var(--c)) top right / 2px 24px,
+    linear-gradient(var(--c), var(--c)) bottom left / 24px 2px,
+    linear-gradient(var(--c), var(--c)) bottom left / 2px 24px,
+    linear-gradient(var(--c), var(--c)) bottom right / 24px 2px,
+    linear-gradient(var(--c), var(--c)) bottom right / 2px 24px;
+  background-repeat: no-repeat;
+}
+
+.reel-play {
+  width: clamp(48px, 8vw, 84px);
+  height: auto;
+  color: var(--accent);
+}
+
+.reel-title {
+  margin: clamp(12px, 2vw, 22px) 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3.2vw, 2.2rem);
+  letter-spacing: 0.02em;
+}
+
+.reel-ratio {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gray);
+}
+
+/* =============================================================
+   PROJECT CARDS
+   ============================================================= */
+.projects {
+  padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  background: #FFFFFF;
+  border: 1px solid var(--gray-light);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 36px -18px rgba(19, 21, 22, 0.35);
+}
+
+/* stand-in image area; can be replaced with a real still later */
+.project-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background:
+    linear-gradient(135deg, transparent 62%, rgba(102, 170, 246, 0.85) 62%, rgba(102, 170, 246, 0.85) 66%, transparent 66%),
+    var(--black);
+  overflow: hidden;
+}
+
+.project-thumb span {
+  position: absolute;
+  left: 20px;
+  bottom: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1;
+  color: rgba(240, 242, 244, 0.14);
+}
+
+.project-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+}
+
+.project-info h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.project-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.project-card:hover .project-link { color: var(--black); }
+
+/* =============================================================
+   FOOTER
+   ============================================================= */
+.site-footer {
+  padding: 24px clamp(16px, 4vw, 48px);
+  background: var(--black);
+  color: var(--gray);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.site-footer p { margin: 0; }
+
+/* =============================================================
+   SIMPLE PAGES (About, Resume, project pages)
+   ============================================================= */
+.simple-page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px);
+  min-height: 60vh;
+}
+
+.simple-page h1 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.simple-page p { color: var(--gray-dark); }
+
+.back-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* =============================================================
+   PHONES AND SMALL TABLETS
+   ============================================================= */
+@media (max-width: 700px) {
+  /* fixed backgrounds are jumpy on phones, so let it scroll */
+  body { background-attachment: scroll; }
+
+  .site-nav { flex-direction: column; gap: 10px; }
+
+  /* bigger text, tighter spacing so the title still fits on one line */
+  .banner-text h1 { font-size: 8vw; }
+  .banner-text p { font-size: 3vw; letter-spacing: 0.03em; }
+
+  .project-grid { grid-template-columns: 1fr; }
+}
+
+/* respect the "reduce motion" setting some people turn on */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yixuan Lu | Character Performance Animator</title>
+  <meta name="description" content="Portfolio of Yixuan Lu, 3D character performance animator.">
+
+  <!-- Browser tab icon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="site-nav">
+    <a class="nav-home" href="index.html">
+      <img src="images/favicon.png" alt="" width="24" height="24">
+      <span>Yixuan Lu</span>
+    </a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <!-- Replace [EMAIL] below with your email address, e.g. mailto:name@example.com -->
+      <a href="mailto:[EMAIL]">Email</a>
+    </nav>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner">
+    <img class="banner-image" src="images/banner.png" alt="" width="1983" height="793">
+    <div class="banner-text">
+      <h1>Yixuan Lu</h1>
+      <p>Character Performance Animator</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ===== DEMO REEL ===== -->
+    <section class="reel" aria-labelledby="reel-heading">
+      <h2 id="reel-heading" class="section-label">Demo Reel</h2>
+      <!-- The video is set in js/main.js (see DEMO_REEL_URL at the top of that file) -->
+      <div class="reel-frame" id="reel-frame">
+        <div class="reel-placeholder">
+          <svg class="reel-play" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M26 20 L46 32 L26 44 Z" fill="currentColor"/>
+          </svg>
+          <p class="reel-title">Demo Reel Coming Soon</p>
+          <p class="reel-ratio">16:9</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-label">Projects</h2>
+      <div class="project-grid">
+
+        <a class="project-card" href="projects/drama-queen.html">
+          <div class="project-thumb" aria-hidden="true"><span>01</span></div>
+          <div class="project-info">
+            <h3>Drama Queen</h3>
+            <span class="project-link">View project <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/gecko-mail.html">
+          <div class="project-thumb" aria-hidden="true"><span>02</span></div>
+          <div class="project-info">
+            <h3>Gecko Mail</h3>
+            <span class="project-link">View project <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Yixuan Lu</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
