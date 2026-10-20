@@ -1,4 +1,12 @@
 // =============================================================
+// EMAIL ADDRESS
+// Replace [EMAIL] with your email address, e.g. "name@example.com".
+// Every Email link on the site uses this one line.
+// =============================================================
+const EMAIL_ADDRESS = "[EMAIL]";
+
+
+// =============================================================
 // VIDEO LINKS
 // Paste each YouTube link between its quotes and save.
 // Any normal YouTube link works, for example:
@@ -47,4 +55,12 @@ function loadVideos() {
   });
 }
 
+// Points every link marked data-email at the address above.
+function setEmailLinks() {
+  document.querySelectorAll("[data-email]").forEach(function (link) {
+    link.href = "mailto:" + EMAIL_ADDRESS.trim();
+  });
+}
+
+setEmailLinks();
 loadVideos();

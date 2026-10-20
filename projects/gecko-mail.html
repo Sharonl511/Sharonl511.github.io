@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gecko Mail | Yixuan Lu</title>
-  <meta name="description" content="Portfolio of Yixuan Lu, 3D character performance animator.">
+  <meta name="description" content="Gecko Mail, a 3D character animation short by Yixuan Lu.">
 
   <!-- Browser tab icon -->
   <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -16,7 +16,8 @@
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<!-- The class below picks this page's background (see PAGE BACKGROUNDS in css/style.css) -->
+<body class="page-gecko-mail">
 
   <!-- ===== NAVIGATION ===== -->
   <header class="site-nav">
@@ -27,20 +28,109 @@
     <nav>
       <a href="../about.html">About</a>
       <a href="../resume.html">Resume</a>
-      <!-- Replace [EMAIL] below with your email address, e.g. mailto:name@example.com -->
-      <a href="mailto:[EMAIL]">Email</a>
+      <!-- The email address is set once in js/main.js (see EMAIL_ADDRESS) -->
+      <a href="mailto:[EMAIL]" data-email>Email</a>
     </nav>
   </header>
 
-  <main class="simple-page">
-    <h1>Gecko Mail</h1>
-    <p>Project page coming soon.</p>
-    <a class="back-link" href="../index.html">&larr; Back to home</a>
+  <main>
+
+    <!-- ===== 1. TITLE AND DETAILS ===== -->
+    <header class="project-header">
+      <h1>Gecko Mail</h1>
+      <!-- Award label: delete this line if the project has no award -->
+      <p class="award-label">Best of Ringling</p>
+      <dl class="project-meta">
+        <div><dt>Character</dt><dd>Rory</dd></div>
+        <div><dt>Length</dt><dd>About 20 seconds</dd></div>
+        <div><dt>Dates</dt><dd>September – December 2025</dd></div>
+        <div><dt>Type</dt><dd>Course project</dd></div>
+      </dl>
+    </header>
+
+    <!-- ===== 2. MAIN VIDEO: FINAL SHORT FILM ===== -->
+    <!-- The video link is set in js/main.js (see "geckoMailFilm") -->
+    <section class="project-main-video">
+      <div class="video-brackets">
+        <div class="video-frame" data-video="geckoMailFilm" aria-label="Gecko Mail short film">
+          <div class="video-placeholder">
+            <div class="video-ring" aria-hidden="true">
+              <img src="../images/ui-loading-ring.png" alt="">
+              <svg viewBox="0 0 64 64"><path d="M24 18 L46 32 L24 46 Z"/></svg>
+            </div>
+            <p class="video-title">Short Film Coming Soon</p>
+            <p class="video-ratio">16:9</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. SUPPORTING VIDEO ===== -->
+    <!-- The video link is set in js/main.js (see "geckoMailTurntable") -->
+    <section class="project-support-video" aria-labelledby="support-heading">
+      <h2 id="support-heading" class="video-caption">Character Turntable</h2>
+      <div class="video-frame" data-video="geckoMailTurntable" aria-label="Gecko Mail character turntable">
+        <div class="video-placeholder">
+          <div class="video-ring" aria-hidden="true">
+            <img src="../images/ui-loading-ring.png" alt="">
+            <svg viewBox="0 0 64 64"><path d="M24 18 L46 32 L24 46 Z"/></svg>
+          </div>
+          <p class="video-title">Character Turntable Coming Soon</p>
+          <p class="video-ratio">16:9</p>
+        </div>
+      </div>
+    </section>
+
+    <img class="section-divider" src="../images/ui-divider.png" alt="" width="2000" height="92">
+
+    <!-- ===== 4. PROJECT DESCRIPTION ===== -->
+    <section class="project-description" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-label section-label-wide">Project Notes</h2>
+
+      <!-- ===== DESCRIPTION TEXT START (draft text: replace the paragraphs below) ===== -->
+
+      <div class="description-block">
+        <h3><span>01</span>Performance</h3>
+        <p>Rory is a gecko mail carrier in a fictional, Nordic-inspired world. On a cold day, he opens a metal mailbox with his tongue to deliver the mail, and his tongue freezes to the metal. The rest of this 20-second clip is his struggle to pull himself free. My goal was to show that I can animate a character pushing and pulling against objects so that Rory and everything he touches feel like they have real weight. Every tug has to read as believable force, so the audience feels the strain along with him.</p>
+      </div>
+
+      <div class="description-block">
+        <h3><span>02</span>Process</h3>
+        <p>The biggest challenge was making the stuck-tongue performance believable. There was no way to film real reference of a tongue frozen to metal, so I couldn't simply act it out and copy it. Instead, I gathered other reference footage to build from, and I used a stretchy elastic cord to simulate the pull. Working with the cord let me observe how that pull really feels, and I used what I learned to guide Rory's struggle against the mailbox.</p>
+      </div>
+
+      <div class="description-block">
+        <h3><span>03</span>Breakdown</h3>
+        <p>Everything from character design to final edit · ZBrush, Maya (AdvancedSkeleton), Substance Painter, Arnold, Nuke, Photoshop, Premiere</p>
+      </div>
+
+      <!-- ===== DESCRIPTION TEXT END ===== -->
+    </section>
+
+    <!-- ===== 5. PIPELINE: stages completed on this project ===== -->
+    <!-- To hide a stage, delete its <li> line -->
+    <section class="project-pipeline" aria-labelledby="pipeline-heading">
+      <h2 id="pipeline-heading" class="section-label">Pipeline</h2>
+      <ul class="pipeline-list">
+        <li><img src="../images/icons/icon-character-design.png" alt="" width="256" height="256"><span>Character Design</span></li>
+        <li><img src="../images/icons/icon-modeling.png" alt="" width="256" height="256"><span>Modeling</span></li>
+        <li><img src="../images/icons/icon-texturing.png" alt="" width="256" height="256"><span>Texturing</span></li>
+        <li><img src="../images/icons/icon-rigging.png" alt="" width="256" height="256"><span>Rigging</span></li>
+        <li><img src="../images/icons/icon-animation.png" alt="" width="256" height="256"><span>Animation</span></li>
+        <li><img src="../images/icons/icon-rendering.png" alt="" width="256" height="256"><span>Rendering</span></li>
+        <li><img src="../images/icons/icon-compositing.png" alt="" width="256" height="256"><span>Compositing</span></li>
+        <li><img src="../images/icons/icon-editing.png" alt="" width="256" height="256"><span>Editing</span></li>
+      </ul>
+    </section>
+
+    <p class="project-back"><a class="back-link" href="../index.html#projects-heading">&larr; Back to projects</a></p>
+
   </main>
 
   <footer class="site-footer">
     <p>&copy; 2026 Yixuan Lu</p>
   </footer>
 
+  <script src="../js/main.js"></script>
 </body>
 </html>

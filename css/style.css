@@ -47,14 +47,24 @@ body {
   font-family: var(--font-body);
   color: var(--black);
   background-color: var(--off-white);
-  /* the background image is chosen in PAGE BACKGROUNDS above;
-     it sits behind everything and stays still while you scroll */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The page background image (chosen in PAGE BACKGROUNDS above).
+   It is a separate layer pinned to the screen, so it always fills
+   the whole window and stays still while the page scrolls past,
+   however long the page is, on laptops and phones alike. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-image: var(--page-background);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 img { display: block; max-width: 100%; }
@@ -196,6 +206,10 @@ main {
   text-transform: uppercase;
   color: var(--black);
 }
+
+/* a wider plate for longer headings such as "Project Notes"
+   (it grows in proportion, so the image never stretches) */
+.section-label-wide { width: 270px; }
 
 /* the divider image between the demo reel and the projects */
 .section-divider {
@@ -638,9 +652,6 @@ main {
 }
 
 @media (max-width: 700px) {
-  /* fixed backgrounds are jumpy on phones, so let it scroll */
-  body { background-attachment: scroll; }
-
   .site-nav { flex-direction: column; gap: 8px; }
   .site-nav nav a { padding: 6px 12px; }
 
@@ -648,6 +659,7 @@ main {
   .banner-text p { font-size: 3vw; letter-spacing: 0.12em; }
 
   .section-label { width: 170px; font-size: 0.9rem; }
+  .section-label-wide { width: 230px; }
 
   .video-brackets { --bracket-scale: 0.14; }
 
