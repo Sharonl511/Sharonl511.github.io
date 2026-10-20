@@ -244,7 +244,7 @@ main {
   border-style: solid;
   border-color: transparent;
   border-width: calc(250px * var(--bracket-scale)) calc(515px * var(--bracket-scale));
-  border-image: url("../images/ui-corner-frame.png") 250 515 stretch;
+  border-image: url("../images/ui-corner-frame.png") 125 258 stretch;
   pointer-events: none;
 }
 

@@ -8,6 +8,7 @@ Plain HTML, CSS and JavaScript, so it needs no build step.
 | File / folder | What it is |
 |---|---|
 | `index.html` | Homepage |
+| `404.html` | "Page not found" page that GitHub shows for any broken address |
 | `about.html`, `resume.html` | About and Resume pages |
 | `files/` | Downloadable files (the resume PDF) |
 | `projects/` | One page per project (Drama Queen, Gecko Mail) |
