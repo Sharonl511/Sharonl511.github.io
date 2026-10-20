@@ -27,6 +27,15 @@
 }
 
 /* =============================================================
+   PAGE BACKGROUNDS
+   To change a background, put the new image in the images
+   folder and change the file name on the matching line below.
+   ============================================================= */
+:root              { --page-background: url("../images/background-hexagon.png"); }  /* homepage, About, Resume */
+.page-drama-queen  { --page-background: url("../images/background-hexagon.png"); }
+.page-gecko-mail   { --page-background: url("../images/background-hexagon.png"); }
+
+/* =============================================================
    BASICS
    ============================================================= */
 * { box-sizing: border-box; }
@@ -38,8 +47,9 @@ body {
   font-family: var(--font-body);
   color: var(--black);
   background-color: var(--off-white);
-  /* the hexagon pattern sits behind everything and stays still while you scroll */
-  background-image: url("../images/background-hexagon.png");
+  /* the background image is chosen in PAGE BACKGROUNDS above;
+     it sits behind everything and stays still while you scroll */
+  background-image: var(--page-background);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -206,13 +216,13 @@ main {
    corners keep their exact shape, and only the empty edges between
    them stretch. So the brackets never look squashed, whatever the
    screen size. --bracket-scale sets how big the brackets are. */
-.reel-brackets {
+.video-brackets {
   --bracket-scale: 0.26;
   position: relative;
   margin: 0 calc(40px * var(--bracket-scale));
 }
 
-.reel-brackets::after {
+.video-brackets::after {
   content: "";
   position: absolute;
   inset: calc(-90px * var(--bracket-scale));
@@ -224,7 +234,7 @@ main {
 }
 
 /* the 16:9 frame; the YouTube player fills it once a link is added */
-.reel-frame {
+.video-frame {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -233,7 +243,7 @@ main {
   overflow: hidden;
 }
 
-.reel-frame iframe {
+.video-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -241,7 +251,7 @@ main {
   border: 0;
 }
 
-.reel-placeholder {
+.video-placeholder {
   position: absolute;
   inset: 0;
   display: flex;
@@ -258,19 +268,19 @@ main {
 }
 
 /* the rotating ring, with a still play triangle in the middle */
-.reel-ring {
+.video-ring {
   position: relative;
   width: clamp(64px, 11vw, 120px);
   aspect-ratio: 1;
 }
 
-.reel-ring img {
+.video-ring img {
   width: 100%;
   height: 100%;
   animation: spin 14s linear infinite;
 }
 
-.reel-ring svg {
+.video-ring svg {
   position: absolute;
   inset: 34%;
   fill: var(--black);
@@ -280,7 +290,7 @@ main {
   to { transform: rotate(360deg); }
 }
 
-.reel-title {
+.video-title {
   margin: clamp(12px, 2vw, 22px) 0 0;
   font-family: var(--font-display);
   font-weight: 700;
@@ -289,7 +299,7 @@ main {
   text-transform: uppercase;
 }
 
-.reel-ratio {
+.video-ratio {
   margin: 2px 0 0;
   font-family: var(--font-display);
   font-weight: 600;
@@ -433,8 +443,200 @@ main {
 }
 
 /* =============================================================
+   PROJECT PAGES
+   Shared by every page in the projects folder.
+   ============================================================= */
+.project-header {
+  padding: clamp(48px, 7vw, 88px) 0 clamp(32px, 5vw, 56px);
+}
+
+.project-header h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* small angled tag under the title, e.g. an award */
+.award-label {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 5px 18px 4px;
+  background: var(--accent);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+/* character, length, dates and type, as a row of small labels */
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  margin: clamp(24px, 3vw, 36px) 0 0;
+  border-top: 1px solid var(--gray-light);
+}
+
+.project-meta div {
+  padding: 14px clamp(16px, 3vw, 40px) 0 0;
+  margin-right: clamp(16px, 3vw, 40px);
+  border-right: 1px solid var(--gray-light);
+}
+
+.project-meta div:last-child { border-right: 0; margin-right: 0; }
+
+.project-meta dt {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+
+.project-meta dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* the main video uses the same bracket frame as the demo reel */
+.project-main-video {
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+/* the supporting video is narrower, with a small caption above it */
+.project-support-video {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: clamp(48px, 7vw, 80px);
+}
+
+.video-caption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+
+/* short blue line before the caption */
+.video-caption::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* smaller ring and text inside the narrower frame */
+.project-support-video .video-ring { width: clamp(52px, 8vw, 88px); }
+.project-support-video .video-title { font-size: clamp(0.95rem, 2.2vw, 1.5rem); }
+
+/* Performance, Process and Breakdown: label on the left, text on the right */
+.project-description {
+  padding: clamp(48px, 7vw, 80px) 0;
+}
+
+.description-block {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  padding: 24px 0;
+  border-top: 1px solid var(--gray-light);
+}
+
+.description-block:last-child { border-bottom: 1px solid var(--gray-light); }
+
+.description-block h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* small number above each heading, e.g. 01 */
+.description-block h3 span {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  color: var(--gray-dark);
+}
+
+.description-block p {
+  margin: 0;
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* row of eight pipeline icons */
+.project-pipeline {
+  padding: clamp(48px, 7vw, 80px) 0 clamp(64px, 9vw, 112px);
+}
+
+.pipeline-list {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pipeline-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 6px 14px;
+  background: var(--panel);
+  border: 1px solid var(--gray-light);
+  text-align: center;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.pipeline-list img {
+  width: 100%;
+  max-width: 64px;
+  height: auto;
+}
+
+.pipeline-list span {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-back {
+  padding-bottom: clamp(48px, 7vw, 80px);
+}
+
+/* =============================================================
    PHONES AND SMALL TABLETS
    ============================================================= */
+@media (max-width: 900px) {
+  .pipeline-list { grid-template-columns: repeat(4, 1fr); }
+}
+
 @media (max-width: 700px) {
   /* fixed backgrounds are jumpy on phones, so let it scroll */
   body { background-attachment: scroll; }
@@ -447,13 +649,23 @@ main {
 
   .section-label { width: 170px; font-size: 0.9rem; }
 
-  .reel-brackets { --bracket-scale: 0.14; }
+  .video-brackets { --bracket-scale: 0.14; }
 
   .project-grid { grid-template-columns: 1fr; }
+
+  /* project pages: stack the details and the description */
+  .project-meta { grid-template-columns: 1fr 1fr; }
+  .project-meta div { border-right: 0; margin-right: 0; padding-right: 0; }
+  .description-block { grid-template-columns: 1fr; gap: 10px; }
+
+  /* icons in two columns, each with its label beside it */
+  .pipeline-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .pipeline-list li { flex-direction: row; justify-content: flex-start; gap: 12px; padding: 10px 12px; text-align: left; }
+  .pipeline-list img { max-width: 36px; }
 }
 
 /* respect the "reduce motion" setting some people turn on */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
-  .reel-ring img { animation: none; }
+  .video-ring img { animation: none; }
 }

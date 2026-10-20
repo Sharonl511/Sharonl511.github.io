@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Drama Queen | Yixuan Lu</title>
-  <meta name="description" content="Portfolio of Yixuan Lu, 3D character performance animator.">
+  <meta name="description" content="Drama Queen, a 3D character animation short by Yixuan Lu.">
 
   <!-- Browser tab icon -->
   <link rel="icon" type="image/png" href="../images/favicon.png">
@@ -16,7 +16,8 @@
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<!-- The class below picks this page's background (see PAGE BACKGROUNDS in css/style.css) -->
+<body class="page-drama-queen">
 
   <!-- ===== NAVIGATION ===== -->
   <header class="site-nav">
@@ -32,15 +33,103 @@
     </nav>
   </header>
 
-  <main class="simple-page">
-    <h1>Drama Queen</h1>
-    <p>Project page coming soon.</p>
-    <a class="back-link" href="../index.html">&larr; Back to home</a>
+  <main>
+
+    <!-- ===== 1. TITLE AND DETAILS ===== -->
+    <header class="project-header">
+      <h1>Drama Queen</h1>
+      <!-- Award label: delete this line if the project has no award -->
+      <dl class="project-meta">
+        <div><dt>Character</dt><dd>White</dd></div>
+        <div><dt>Length</dt><dd>About 20 seconds</dd></div>
+        <div><dt>Dates</dt><dd>January – May 2026</dd></div>
+        <div><dt>Type</dt><dd>Course project</dd></div>
+      </dl>
+    </header>
+
+    <!-- ===== 2. MAIN VIDEO: FINAL SHORT FILM ===== -->
+    <!-- The video link is set in js/main.js (see "dramaQueenFilm") -->
+    <section class="project-main-video">
+      <div class="video-brackets">
+        <div class="video-frame" data-video="dramaQueenFilm" aria-label="Drama Queen short film">
+          <div class="video-placeholder">
+            <div class="video-ring" aria-hidden="true">
+              <img src="../images/ui-loading-ring.png" alt="">
+              <svg viewBox="0 0 64 64"><path d="M24 18 L46 32 L24 46 Z"/></svg>
+            </div>
+            <p class="video-title">Short Film Coming Soon</p>
+            <p class="video-ratio">16:9</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. SUPPORTING VIDEO ===== -->
+    <!-- The video link is set in js/main.js (see "dramaQueenRigTest") -->
+    <section class="project-support-video" aria-labelledby="support-heading">
+      <h2 id="support-heading" class="video-caption">Rig Emotion Test</h2>
+      <div class="video-frame" data-video="dramaQueenRigTest" aria-label="Drama Queen rig emotion test">
+        <div class="video-placeholder">
+          <div class="video-ring" aria-hidden="true">
+            <img src="../images/ui-loading-ring.png" alt="">
+            <svg viewBox="0 0 64 64"><path d="M24 18 L46 32 L24 46 Z"/></svg>
+          </div>
+          <p class="video-title">Rig Emotion Test Coming Soon</p>
+          <p class="video-ratio">16:9</p>
+        </div>
+      </div>
+    </section>
+
+    <img class="section-divider" src="../images/ui-divider.png" alt="" width="2000" height="92">
+
+    <!-- ===== 4. PROJECT DESCRIPTION ===== -->
+    <section class="project-description" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-label">About</h2>
+
+      <!-- ===== DESCRIPTION TEXT START (draft text: replace the paragraphs below) ===== -->
+
+      <div class="description-block">
+        <h3><span>01</span>Performance</h3>
+        <p>White is a teenager auditioning for her school's theater production. As the clip opens, she is fully in character as a lady telling the story of her husband's death and how much she hates him. Then a teacher interrupts, and the role drops away to reveal the real girl underneath. My goal in this 20-second lip-sync piece was to make that sudden change read clearly through my acting choices, so the audience gets the twist the instant it happens. The comedy depends on the contrast between the dramatic role she is playing and her real self.</p>
+      </div>
+
+      <div class="description-block">
+        <h3><span>02</span>Process</h3>
+        <p>The biggest challenge was switching between two worlds: the scene in White's imagination, where she is the lady, and the real school audition. To make each switch clear, I changed the lighting, camera movement, and scene transitions between the two settings, and I swapped her costume model so her look changes along with the scene. Another major challenge was her hair and skirt. I groomed her hair with XGen and simulated her skirt with nCloth.</p>
+      </div>
+
+      <div class="description-block">
+        <h3><span>03</span>Breakdown</h3>
+        <p>Everything from character design to final edit · ZBrush, Maya (AdvancedSkeleton, XGen, nCloth), Substance Painter, Arnold, Nuke, Photoshop, Premiere</p>
+      </div>
+
+      <!-- ===== DESCRIPTION TEXT END ===== -->
+    </section>
+
+    <!-- ===== 5. PIPELINE: stages completed on this project ===== -->
+    <!-- To hide a stage, delete its <li> line -->
+    <section class="project-pipeline" aria-labelledby="pipeline-heading">
+      <h2 id="pipeline-heading" class="section-label">Pipeline</h2>
+      <ul class="pipeline-list">
+        <li><img src="../images/icons/icon-character-design.png" alt="" width="256" height="256"><span>Character Design</span></li>
+        <li><img src="../images/icons/icon-modeling.png" alt="" width="256" height="256"><span>Modeling</span></li>
+        <li><img src="../images/icons/icon-texturing.png" alt="" width="256" height="256"><span>Texturing</span></li>
+        <li><img src="../images/icons/icon-rigging.png" alt="" width="256" height="256"><span>Rigging</span></li>
+        <li><img src="../images/icons/icon-animation.png" alt="" width="256" height="256"><span>Animation</span></li>
+        <li><img src="../images/icons/icon-rendering.png" alt="" width="256" height="256"><span>Rendering</span></li>
+        <li><img src="../images/icons/icon-compositing.png" alt="" width="256" height="256"><span>Compositing</span></li>
+        <li><img src="../images/icons/icon-editing.png" alt="" width="256" height="256"><span>Editing</span></li>
+      </ul>
+    </section>
+
+    <p class="project-back"><a class="back-link" href="../index.html#projects-heading">&larr; Back to projects</a></p>
+
   </main>
 
   <footer class="site-footer">
     <p>&copy; 2026 Yixuan Lu</p>
   </footer>
 
+  <script src="../js/main.js"></script>
 </body>
 </html>

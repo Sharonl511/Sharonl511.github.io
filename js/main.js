@@ -1,12 +1,18 @@
 // =============================================================
-// DEMO REEL
-// Paste your YouTube link between the quotes below and save.
+// VIDEO LINKS
+// Paste each YouTube link between its quotes and save.
 // Any normal YouTube link works, for example:
 //   https://www.youtube.com/watch?v=abc123XYZ00
 //   https://youtu.be/abc123XYZ00
-// Leave it empty ("") to show the "Demo Reel Coming Soon" frame.
+// Leave a link empty ("") to show its "Coming Soon" frame.
 // =============================================================
-const DEMO_REEL_URL = "";
+const VIDEO_LINKS = {
+  demoReel:           "",   // homepage
+  dramaQueenFilm:     "",   // Drama Queen: final short film
+  dramaQueenRigTest:  "",   // Drama Queen: rig emotion test
+  geckoMailFilm:      "",   // Gecko Mail: final short film
+  geckoMailTurntable: "",   // Gecko Mail: character turntable
+};
 
 
 // You don't need to change anything below this line.
@@ -19,20 +25,26 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
-// Swaps the placeholder for a YouTube player when a link is set.
-function loadDemoReel() {
-  const frame = document.getElementById("reel-frame");
-  const videoId = getYouTubeId(DEMO_REEL_URL.trim());
-  if (!frame || !videoId) return;
+// Every video frame on a page has a data-video="..." name that
+// matches one of the links above. When that link is filled in,
+// the "Coming Soon" placeholder is swapped for a YouTube player.
+function loadVideos() {
+  document.querySelectorAll("[data-video]").forEach(function (frame) {
+    const link = VIDEO_LINKS[frame.dataset.video] || "";
+    const videoId = getYouTubeId(link.trim());
+    if (!videoId) return;
 
-  const player = document.createElement("iframe");
-  player.src = "https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0";
-  player.title = "Yixuan Lu demo reel";
-  player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-  player.allowFullscreen = true;
+    const player = document.createElement("iframe");
+    // youtube-nocookie.com is YouTube's privacy-enhanced mode.
+    // rel=0 keeps the suggested videos at the end to your own channel.
+    player.src = "https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0";
+    player.title = frame.getAttribute("aria-label") || "Video";
+    player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    player.allowFullscreen = true;
 
-  frame.innerHTML = "";
-  frame.appendChild(player);
+    frame.innerHTML = "";
+    frame.appendChild(player);
+  });
 }
 
-loadDemoReel();
+loadVideos();
