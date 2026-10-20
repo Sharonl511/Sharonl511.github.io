@@ -928,7 +928,153 @@ main {
 }
 
 /* respect the "reduce motion" setting some people turn on */
+/* =============================================================
+   INTERACTIONS
+   Every hover and fade here lasts 0.25 seconds or less.
+   ============================================================= */
+
+/* 1. Smooth fade between pages.
+   Modern browsers cross-fade from one page to the next. */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+}
+
+/* Browsers without that feature fade the new page in instead. */
+@supports not (view-transition-name: none) {
+  body { animation: page-fade-in 0.25s ease-out; }
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+}
+
+/* 2. Project Notes: Process and Breakdown open and close on click.
+   The heading row is the button; the text sits under the right column. */
+.description-toggle { display: block; }
+
+.description-toggle summary {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+}
+
+.description-toggle summary::-webkit-details-marker { display: none; }
+
+.description-toggle summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.description-toggle > p {
+  margin-top: 14px;
+  margin-left: calc(200px + clamp(16px, 3vw, 40px));
+}
+
+/* "Show" / "Hide" and a plus sign that turns into a minus */
+.toggle-hint {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  transition: color 0.2s;
+}
+
+.toggle-hide,
+.description-toggle[open] .toggle-show { display: none; }
+.description-toggle[open] .toggle-hide { display: inline; }
+
+.toggle-hint i {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--gray-light);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.toggle-hint i::before,
+.toggle-hint i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  margin: -1px 0 0 -5px;
+  background: var(--black);
+  transition: transform 0.2s;
+}
+
+.toggle-hint i::after { transform: rotate(90deg); }
+.description-toggle[open] .toggle-hint i::after { transform: rotate(0deg); }
+
+.description-toggle summary:hover .toggle-hint { color: var(--black); }
+.description-toggle summary:hover .toggle-hint i {
+  border-color: var(--accent);
+  background-color: var(--accent);
+}
+
+/* the text slides open (in browsers that support it) and fades in */
+@media (prefers-reduced-motion: no-preference) {
+  .description-toggle { interpolate-size: allow-keywords; }
+
+  .description-toggle::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.25s ease, content-visibility 0.25s allow-discrete;
+  }
+
+  .description-toggle[open]::details-content { block-size: auto; }
+
+  .description-toggle[open] > p { animation: notes-fade-in 0.25s ease-out; }
+}
+
+@keyframes notes-fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+}
+
+/* 3. Pipeline tiles lift slightly with a light blue outline on hover */
+.pipeline-list li {
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.pipeline-list li:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+@media (max-width: 700px) {
+  .description-toggle summary { grid-template-columns: 1fr auto; }
+  .description-toggle > p { margin-left: 0; }
+}
+
+/* =============================================================
+   REDUCE MOTION
+   For visitors who turned on "reduce motion" in their device
+   settings: no fades, slides, lifts or spinning. Hover colors
+   and outlines still change, just instantly.
+   ============================================================= */
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; scroll-behavior: auto !important; }
-  .video-ring img { animation: none; }
+  @view-transition { navigation: none; }
+
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .project-card:hover,
+  .pipeline-list li:hover { transform: none; }
 }
